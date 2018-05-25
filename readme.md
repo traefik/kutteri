@@ -1,5 +1,8 @@
 # Chalepoxenus Kutteri
 
+[![Build Status](https://travis-ci.org/containous/kutteri.svg?branch=master)](https://travis-ci.org/containous/kutteri)
+[![Docker Build Status](https://img.shields.io/docker/build/containous/kutteri.svg)](https://hub.docker.com/r/containous/kutteri/builds/)
+
 ## Usage
 
 ```
