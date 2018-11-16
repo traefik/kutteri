@@ -2,88 +2,116 @@
 
 
 [[projects]]
+  digest = "1:75b51d6f6443e3ffc80a7a1d912327124aab35065f13f887513208a3a7a3dd1b"
   name = "github.com/containous/flaeg"
   packages = [
     ".",
-    "parse"
+    "parse",
   ]
+  pruneopts = "NT"
   revision = "b4c2f060875361c070ed2bc300c5929b82f5fa2e"
   version = "v1.1.2"
 
 [[projects]]
+  digest = "1:bc4aca7160cb2b28276850ff96acabaf834402a7edcf59bf82c31fbe7916f906"
   name = "github.com/davecgh/go-spew"
   packages = ["spew"]
+  pruneopts = "NT"
   revision = "346938d642f2ec3594ed81d874461961cd0faa76"
   version = "v1.1.0"
 
 [[projects]]
+  digest = "1:cf890e9d837a2576c1a062816529fa143941405c04b1f89ddd9bea8e5c5a1eac"
   name = "github.com/golang/protobuf"
   packages = ["proto"]
+  pruneopts = "NT"
   revision = "b4deda0973fb4c70b50d226b1af49f3da59f5265"
   version = "v1.1.0"
 
 [[projects]]
+  digest = "1:ec0f83d6bb83fbc2f1751e925c130e14a6a4ebe59f9bdb3c8784ed18a8f688cc"
   name = "github.com/google/go-github"
   packages = ["github"]
+  pruneopts = "NT"
   revision = "e48060a28fac52d0f1cb758bc8b87c07bac4a87d"
   version = "v15.0.0"
 
 [[projects]]
   branch = "master"
+  digest = "1:a63cff6b5d8b95638bfe300385d93b2a6d9d687734b863da8e09dc834510a690"
   name = "github.com/google/go-querystring"
   packages = ["query"]
+  pruneopts = "NT"
   revision = "53e6ce116135b80d037921a7fdd5138cf32d7a8a"
 
 [[projects]]
+  digest = "1:dbbd067a1aa366a581fcf7587028715e69c0067880b4e82450456ddb0809277c"
   name = "github.com/gorilla/websocket"
   packages = ["."]
+  pruneopts = "NT"
   revision = "ea4d1f681babbce9545c9c5f3d5194a789c89f5b"
   version = "v1.2.0"
 
 [[projects]]
+  digest = "1:70e65e0a32d0fd06626f9344787627660a9ea46c37e6a535b5ea6c17f6b3fb4c"
   name = "github.com/nlopes/slack"
   packages = ["."]
+  pruneopts = "NT"
   revision = "8ab4d0b364ef1e9af5d102531da20d5ec902b6c4"
   version = "v0.2.0"
 
 [[projects]]
   branch = "master"
+  digest = "1:95d27e49401b61dd203a4cf8237037bd6cd49599651f855ac1988c4ae27b090e"
   name = "github.com/ogier/pflag"
   packages = ["."]
+  pruneopts = "NT"
   revision = "45c278ab3607870051a2ea9040bb85fcb8557481"
 
 [[projects]]
+  digest = "1:0028cb19b2e4c3112225cd871870f2d9cf49b9b4276531f03438a88e94be86fe"
   name = "github.com/pmezard/go-difflib"
   packages = ["difflib"]
+  pruneopts = "NT"
   revision = "792786c7400a136282c1664665ae0a8db921c6c2"
   version = "v1.0.0"
 
 [[projects]]
+  digest = "1:32c057783a7e8aeed1b8d470ff55c0392c6d02b920c4c3f55bcb41fa44c4571a"
   name = "github.com/stretchr/testify"
-  packages = ["assert"]
+  packages = [
+    "assert",
+    "require",
+  ]
+  pruneopts = "NT"
   revision = "12b6f73e6084dad08a7c6e575284b177ecafbc71"
   version = "v1.2.1"
 
 [[projects]]
   branch = "master"
+  digest = "1:087f4c3400f38638bf04be7a9207d327cf69a12a84e92766d66cd47efb959963"
   name = "golang.org/x/net"
   packages = [
     "context",
-    "context/ctxhttp"
+    "context/ctxhttp",
   ]
+  pruneopts = "NT"
   revision = "2491c5de3490fced2f6cff376127c667efeed857"
 
 [[projects]]
   branch = "master"
+  digest = "1:5029510fd5c8b88d5d9f52b228a6e1a2ed4f343221ff4f68075916ea4a188b6c"
   name = "golang.org/x/oauth2"
   packages = [
     ".",
-    "internal"
+    "internal",
   ]
+  pruneopts = "NT"
   revision = "cdc340f7c179dbbfa4afd43b7614e8fcadde4269"
 
 [[projects]]
   branch = "master"
+  digest = "1:6366c3c7d7e6010b0a8217677e81205d769ffdef94f4e665a61b4d1938d26ec6"
   name = "google.golang.org/appengine"
   packages = [
     "internal",
@@ -92,13 +120,22 @@
     "internal/log",
     "internal/remote_api",
     "internal/urlfetch",
-    "urlfetch"
+    "urlfetch",
   ]
+  pruneopts = "NT"
   revision = "b9aad5d628b283f265adf8d3557faae187a8d015"
 
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "895c01f8c689d5c63fa8bff6fd66991dae8edaf1f0492e60fa32cd4f722a68dd"
+  input-imports = [
+    "github.com/containous/flaeg",
+    "github.com/google/go-github/github",
+    "github.com/nlopes/slack",
+    "github.com/ogier/pflag",
+    "github.com/stretchr/testify/assert",
+    "github.com/stretchr/testify/require",
+    "golang.org/x/oauth2",
+  ]
   solver-name = "gps-cdcl"
   solver-version = 1
