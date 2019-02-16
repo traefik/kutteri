@@ -78,6 +78,7 @@ func runCommand(config *Configuration) func() error {
 			config.GitHubToken = os.Getenv("GITHUB_TOKEN")
 		}
 
+		fmt.Println("config.SlackToken", config.SlackToken)
 		if len(config.SlackToken) == 0 {
 			config.SlackToken = os.Getenv("SLACK_TOKEN")
 		}
@@ -148,7 +149,7 @@ func validateConfig(config *Configuration) error {
 		return err
 	}
 
-	return required(config.GitHubToken, "sltoken")
+	return required(config.SlackToken, "sltoken")
 }
 
 func required(field string, fieldName string) error {
