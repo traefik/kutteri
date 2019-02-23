@@ -1,11 +1,14 @@
 # Chalepoxenus Kutteri
 
+[![GitHub release](https://img.shields.io/github/release/containous/kutteri.svg)](https://github.com/containous/kutteri/releases/latest)
 [![Build Status](https://travis-ci.org/containous/kutteri.svg?branch=master)](https://travis-ci.org/containous/kutteri)
 [![Docker Build Status](https://img.shields.io/docker/build/containous/kutteri.svg)](https://hub.docker.com/r/containous/kutteri/builds/)
 
+Track a GitHub repository and publish on Slack.
+
 ## Usage
 
-```
+```yaml
 Chalepoxenus Kutteri: Track a GitHub repository and publish on Slack.
 
 Usage: kuterri [--flag=flag_argument] [-f[flag_argument]] ...     set flag_argument to flag(s)
@@ -32,16 +35,20 @@ Flags:
 
 ## Information
 
-| issue   | filter                                                           |
-|---------|------------------------------------------------------------------|
-| new     | `type:issue state:open created:>[DATE] in:title traefik`         |
-| updated | `type:issue state:open updated:>[DATE] in:title traefik` - [NEW] |
+| issue     | filter                                                           |
+|-----------|------------------------------------------------------------------|
+| new       | `type:issue state:open created:>[DATE] in:title traefik`         |
+| updated   | `type:issue state:open updated:>[DATE] in:title traefik` - [NEW] |
 | ~closed~  | `type:issue closed:>[DATE] in:title traefik`                     |
 
 
-| PR      | filter                                                        |
-|---------|---------------------------------------------------------------|
-| new     | `type:pr state:open created:>[DATE] in:title traefik`         |
-| updated | `type:pr state:open updated:>[DATE] in:title traefik` - [NEW] |
-| merged  | `type:pr merged:>[DATE] in:title traefik`                     |
+| PR        | filter                                                        |
+|-----------|---------------------------------------------------------------|
+| new       | `type:pr state:open created:>[DATE] in:title traefik`         |
+| updated   | `type:pr state:open updated:>[DATE] in:title traefik` - [NEW] |
+| merged    | `type:pr merged:>[DATE] in:title traefik`                     |
 | ~closed~  | `type:pr closed:>[DATE] in:title traefik`                     |
+
+## What does Chalepoxenus Kutteri mean?
+
+![Chalepoxenus Kutteri](http://www.antwiki.org/wiki/Temnothorax_kutteri#mediaviewer/File:Chalepoxenus_kutteri_casent0106300_h_1_high.jpg)

@@ -24,11 +24,11 @@
 #   go-tests = true
 #   unused-packages = true
 
-[[override]]
-  name = "google.golang.org/appengine"
-  branch = "master"
-
 [prune]
   non-go = true
   go-tests = true
-#  unused-packages = true
+  unused-packages = true
+
+[[override]]
+  name = "google.golang.org/appengine"
+  branch = "master"

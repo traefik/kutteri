@@ -11,7 +11,6 @@ import (
 	"github.com/containous/flaeg"
 	"github.com/containous/kutteri/core"
 	"github.com/containous/kutteri/locker"
-	"github.com/containous/kutteri/meta"
 	"github.com/ogier/pflag"
 )
 
@@ -34,8 +33,6 @@ type Configuration struct {
 type NoOption struct{}
 
 func main() {
-	defaultPointersConfig := &Configuration{}
-
 	config := &Configuration{
 		BotName:    "Bender",
 		BotIcon:    ":bento:",
@@ -46,7 +43,7 @@ func main() {
 	rootCmd := &flaeg.Command{
 		Name:                  "kuterri",
 		Description:           `Chalepoxenus Kutteri: Track a GitHub repository and publish on Slack.`,
-		DefaultPointersConfig: defaultPointersConfig,
+		DefaultPointersConfig: &Configuration{},
 		Config:                config,
 		Run:                   runCommand(config),
 	}
@@ -60,7 +57,7 @@ func main() {
 		Config:                &NoOption{},
 		DefaultPointersConfig: &NoOption{},
 		Run: func() error {
-			meta.DisplayVersion()
+			displayVersion()
 			return nil
 		},
 	}
