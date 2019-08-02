@@ -7,7 +7,7 @@ import (
 	"text/template"
 
 	"github.com/containous/kutteri/filter"
-	"github.com/google/go-github/github"
+	"github.com/google/go-github/v27/github"
 	"github.com/nlopes/slack"
 	"golang.org/x/oauth2"
 )

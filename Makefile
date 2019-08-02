@@ -1,6 +1,6 @@
 .PHONY: clean checks test build
 
-GOFILES := $(shell git ls-files '*.go' | grep -v '^vendor/')
+export GO111MODULE=on
 
 TAG_NAME := $(shell git tag -l --contains HEAD)
 SHA := $(shell git rev-parse --short HEAD)
