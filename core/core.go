@@ -7,7 +7,7 @@ import (
 	"text/template"
 
 	"github.com/containous/kutteri/filter"
-	"github.com/google/go-github/v27/github"
+	"github.com/google/go-github/v32/github"
 	"github.com/nlopes/slack"
 	"golang.org/x/oauth2"
 )
@@ -20,7 +20,7 @@ type SlackConfig struct {
 	DryRun  bool
 }
 
-// SearchCriterion GitHub search criterion
+// SearchCriterion GitHub search criterion.
 type SearchCriterion struct {
 	Owner    string
 	RepoName string
@@ -29,18 +29,18 @@ type SearchCriterion struct {
 }
 
 type messageModel struct {
-	Issues []github.Issue
+	Issues []*github.Issue
 	Title  string
 }
 
-// Bot The Bot
+// Bot The Bot.
 type Bot struct {
 	ghClient    *github.Client
 	slackClient *slack.Client
 	SlackConfig SlackConfig
 }
 
-// NewBot Create a new Bot
+// NewBot Create a new Bot.
 func NewBot(ctx context.Context, ghToken string, slackToken string, slackConfig SlackConfig) *Bot {
 	return &Bot{
 		ghClient:    NewGitHubClient(ctx, ghToken),
@@ -49,7 +49,7 @@ func NewBot(ctx context.Context, ghToken string, slackToken string, slackConfig 
 	}
 }
 
-// ProcessAll Execute bot on issues and pull request
+// ProcessAll Execute bot on issues and pull request.
 func (b *Bot) ProcessAll(ctx context.Context, searchConfig SearchCriterion) error {
 	err := b.ProcessIssues(ctx, searchConfig)
 	if err != nil {
@@ -59,7 +59,7 @@ func (b *Bot) ProcessAll(ctx context.Context, searchConfig SearchCriterion) erro
 	return b.ProcessPullRequest(ctx, searchConfig)
 }
 
-// ProcessIssues Execute bot on issues
+// ProcessIssues Execute bot on issues.
 func (b *Bot) ProcessIssues(ctx context.Context, searchConfig SearchCriterion) error {
 	var models []messageModel
 
@@ -105,7 +105,7 @@ func (b *Bot) ProcessIssues(ctx context.Context, searchConfig SearchCriterion) e
 	return nil
 }
 
-// ProcessPullRequest Execute bot on pull request
+// ProcessPullRequest Execute bot on pull request.
 func (b *Bot) ProcessPullRequest(ctx context.Context, searchConfig SearchCriterion) error {
 	var models []messageModel
 
@@ -167,13 +167,13 @@ func (b *Bot) ProcessPullRequest(ctx context.Context, searchConfig SearchCriteri
 	return nil
 }
 
-func searchUpdated(ctx context.Context, client *github.Client, query string, newIssues []github.Issue) ([]github.Issue, error) {
+func searchUpdated(ctx context.Context, client *github.Client, query string, newIssues []*github.Issue) ([]*github.Issue, error) {
 	issues, err := search(ctx, client, query)
 	if err != nil {
 		return nil, err
 	}
 
-	var realIssues []github.Issue
+	var realIssues []*github.Issue
 	for _, issue := range issues {
 		var freshIssue bool
 		for _, newIssue := range newIssues {
@@ -190,7 +190,7 @@ func searchUpdated(ctx context.Context, client *github.Client, query string, new
 	return realIssues, nil
 }
 
-func search(ctx context.Context, client *github.Client, query string) ([]github.Issue, error) {
+func search(ctx context.Context, client *github.Client, query string) ([]*github.Issue, error) {
 	options := &github.SearchOptions{
 		Sort:        "updated",
 		Order:       "desc",
@@ -251,7 +251,7 @@ func sendToSlack(client *slack.Client, config SlackConfig, text string) error {
 	return err
 }
 
-// NewGitHubClient create a new GitHub client
+// NewGitHubClient create a new GitHub client.
 func NewGitHubClient(ctx context.Context, token string) *github.Client {
 	if len(token) == 0 {
 		return github.NewClient(nil)

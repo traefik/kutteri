@@ -2,6 +2,7 @@ package main
 
 import (
 	"context"
+	"errors"
 	"fmt"
 	"log"
 	"net/http"
@@ -64,7 +65,7 @@ func main() {
 
 	flag.AddCommand(versionCmd)
 	err := flag.Run()
-	if err != nil && err != pflag.ErrHelp {
+	if err != nil && !errors.Is(err, pflag.ErrHelp) {
 		log.Fatalf("Error: %v\n", err)
 	}
 }

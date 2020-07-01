@@ -5,7 +5,7 @@ import (
 	"log"
 )
 
-// Build a filter
+// Build a filter.
 func Build(fns ...func() string) string {
 	var query string
 	for _, fn := range fns {
@@ -15,62 +15,62 @@ func Build(fns ...func() string) string {
 	return query
 }
 
-// Issue type:issue
+// Issue type:issue.
 func Issue() string {
 	return "type:issue"
 }
 
-// PullRequest type:pr
+// PullRequest type:pr.
 func PullRequest() string {
 	return "type:pr"
 }
 
-// Open state:open
+// Open state:open.
 func Open() string {
 	return "state:open"
 }
 
-// InTitle in:title
+// InTitle in:title.
 func InTitle() string {
 	return "in:title"
 }
 
-// Content simple words
+// Content simple words.
 func Content(data string) func() string {
 	return func() string {
 		return data
 	}
 }
 
-// CreatedAfter created:>xxx
+// CreatedAfter created:>xxx.
 func CreatedAfter(date string) func() string {
 	return func() string {
 		return fmt.Sprintf("created:>%s", date)
 	}
 }
 
-// UpdatedAfter updated:>xxx
+// UpdatedAfter updated:>xxx.
 func UpdatedAfter(date string) func() string {
 	return func() string {
 		return fmt.Sprintf("updated:>%s", date)
 	}
 }
 
-// MergedAfter merged:>xxx
+// MergedAfter merged:>xxx.
 func MergedAfter(date string) func() string {
 	return func() string {
 		return fmt.Sprintf("merged:>%s", date)
 	}
 }
 
-// ClosedAfter closed:>xxx
+// ClosedAfter closed:>xxx.
 func ClosedAfter(date string) func() string {
 	return func() string {
 		return fmt.Sprintf("closed:>%s", date)
 	}
 }
 
-// Repo repo:xxx/yyy
+// Repo repo:xxx/yyy.
 func Repo(owner, repoName string) func() string {
 	return func() string {
 		return fmt.Sprintf("repo:%s/%s", owner, repoName)
