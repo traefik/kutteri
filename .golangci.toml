@@ -35,6 +35,7 @@
     "scopelint",
     "goerr113",
     "testpackage",
+    "nlreturn",
   ]
 
 [issues]

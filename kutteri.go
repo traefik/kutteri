@@ -10,9 +10,9 @@ import (
 	"strconv"
 
 	"github.com/containous/flaeg"
-	"github.com/containous/kutteri/core"
-	"github.com/containous/kutteri/locker"
 	"github.com/ogier/pflag"
+	"github.com/traefik/kutteri/core"
+	"github.com/traefik/kutteri/locker"
 )
 
 // Configuration Command configuration.

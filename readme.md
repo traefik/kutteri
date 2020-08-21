@@ -1,8 +1,8 @@
 # Chalepoxenus Kutteri
 
-[![GitHub release](https://img.shields.io/github/release/containous/kutteri.svg)](https://github.com/containous/kutteri/releases/latest)
-[![Build Status](https://travis-ci.com/containous/kutteri.svg?branch=master)](https://travis-ci.com/containous/kutteri)
-[![Docker Build Status](https://img.shields.io/docker/build/containous/kutteri.svg)](https://hub.docker.com/r/containous/kutteri/builds/)
+[![GitHub release](https://img.shields.io/github/release/traefik/kutteri.svg)](https://github.com/traefik/kutteri/releases/latest)
+[![Build Status](https://travis-ci.com/traefik/kutteri.svg?branch=master)](https://travis-ci.com/traefik/kutteri)
+[![Docker Build Status](https://img.shields.io/docker/build/traefik/kutteri.svg)](https://hub.docker.com/r/traefik/kutteri/builds/)
 
 Track a GitHub repository and publish on Slack.
 

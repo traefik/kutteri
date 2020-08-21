@@ -6,9 +6,9 @@ import (
 	"fmt"
 	"text/template"
 
-	"github.com/containous/kutteri/filter"
 	"github.com/google/go-github/v32/github"
 	"github.com/nlopes/slack"
+	"github.com/traefik/kutteri/filter"
 	"golang.org/x/oauth2"
 )
 
