@@ -1,4 +1,4 @@
-module github.com/containous/kutteri
+module github.com/traefik/kutteri
 
 go 1.14
 
