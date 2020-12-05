@@ -1,9 +1,7 @@
 package locker
 
 import (
-	"io/ioutil"
-	"log"
-	"os"
+	"path/filepath"
 	"testing"
 
 	"github.com/stretchr/testify/assert"
@@ -11,14 +9,10 @@ import (
 )
 
 func TestTimeLocker_GetLastTime(t *testing.T) {
-	dir, clean, err := createTempDir()
-	if err != nil {
-		return
-	}
-	defer clean()
+	dir := t.TempDir()
 
 	recorder := TimeLocker{
-		FilePath: dir + "/foo",
+		FilePath: filepath.Join(dir, "foo"),
 		HourBack: 1,
 	}
 
@@ -29,14 +23,10 @@ func TestTimeLocker_GetLastTime(t *testing.T) {
 }
 
 func TestTimeLocker_SaveLastTime(t *testing.T) {
-	dir, clean, err := createTempDir()
-	if err != nil {
-		return
-	}
-	defer clean()
+	dir := t.TempDir()
 
 	recorder := TimeLocker{
-		FilePath: dir + "/foo",
+		FilePath: filepath.Join(dir, "foo"),
 		HourBack: 1,
 	}
 
@@ -44,18 +34,4 @@ func TestTimeLocker_SaveLastTime(t *testing.T) {
 	require.NoError(t, err)
 
 	assert.NotEmpty(t, lastTime)
-}
-
-func createTempDir() (string, func(), error) {
-	dir, err := ioutil.TempDir("", "kutteri")
-	if err != nil {
-		return "", func() {}, err
-	}
-
-	return dir, func() {
-		errRemove := os.RemoveAll(dir)
-		if errRemove != nil {
-			log.Println(errRemove)
-		}
-	}, nil
 }
