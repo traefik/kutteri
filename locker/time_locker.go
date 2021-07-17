@@ -12,7 +12,7 @@ const ghDateLayout = "2006-01-02T15:04:05-07:00"
 // TimeLocker Manage the time lock file.
 type TimeLocker struct {
 	FilePath string
-	HourBack time.Duration
+	HourBack int
 }
 
 // GetLastTime Get the last time.
@@ -35,7 +35,7 @@ func (l TimeLocker) GetLastTime() (string, error) {
 
 // SaveLastTime Save the current time.
 func (l TimeLocker) SaveLastTime() (string, error) {
-	srcDate := time.Now().Add(-l.HourBack * time.Hour)
+	srcDate := time.Now().Add(-1 * (time.Duration(l.HourBack) * time.Hour))
 	date := srcDate.Format(ghDateLayout)
 
 	err := ioutil.WriteFile(l.FilePath, []byte(date), 0644)
