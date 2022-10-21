@@ -1,7 +1,6 @@
 package locker
 
 import (
-	"io/ioutil"
 	"log"
 	"os"
 	"time"
@@ -25,7 +24,7 @@ func (l TimeLocker) GetLastTime() (string, error) {
 		return "", err
 	}
 
-	data, err := ioutil.ReadFile(l.FilePath)
+	data, err := os.ReadFile(l.FilePath)
 	if err != nil {
 		return "", err
 	}
@@ -38,7 +37,7 @@ func (l TimeLocker) SaveLastTime() (string, error) {
 	srcDate := time.Now().Add(-1 * (time.Duration(l.HourBack) * time.Hour))
 	date := srcDate.Format(ghDateLayout)
 
-	err := ioutil.WriteFile(l.FilePath, []byte(date), 0644)
+	err := os.WriteFile(l.FilePath, []byte(date), 0o644)
 	if err != nil {
 		return "", err
 	}
